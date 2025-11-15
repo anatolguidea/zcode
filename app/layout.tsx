@@ -6,45 +6,44 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://zcode.dev"),
   title: {
-    default: "Zcode",
+    default: "Zcode - Modern Web Development Agency",
     template: "%s | Zcode"
   },
-  description: "Minimal, fast one-page portfolio with pricing and services.",
+  description: "Transform your vision into high-performing websites and web applications. Professional web development services with cutting-edge technology, strategic design, and exceptional results.",
   alternates: { canonical: "/" },
+  keywords: ["web development", "web design", "Next.js", "React", "TypeScript", "web agency", "custom websites", "web applications"],
   openGraph: {
     type: "website",
-    url: "https://example.com",
-    title: "Zcode",
-    description: "Minimal, fast one-page portfolio with pricing and services.",
+    url: "https://zcode.dev",
+    title: "Zcode - Modern Web Development Agency",
+    description: "Transform your vision into high-performing websites and web applications. Professional web development services with cutting-edge technology, strategic design, and exceptional results.",
     images: [{ url: "/og.jpg", width: 1200, height: 630 }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zcode",
-    description: "Minimal, fast one-page portfolio with pricing and services.",
+    title: "Zcode - Modern Web Development Agency",
+    description: "Transform your vision into high-performing websites and web applications. Professional web development services with cutting-edge technology, strategic design, and exceptional results.",
     images: ["/og.jpg"]
   },
   robots: { index: true, follow: true }
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" }
-  ]
+  themeColor: "#000000"
 }
 
 const org = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Zcode",
-  url: "https://example.com",
-  logo: "https://example.com/logo.png",
+  url: "https://zcode.dev",
+  logo: "https://zcode.dev/logo.png",
+  description: "Modern web development agency specializing in creating exceptional digital experiences",
   sameAs: [
-    "https://twitter.com/acme",
-    "https://www.linkedin.com/company/acme"
+    "https://twitter.com/zcode",
+    "https://www.linkedin.com/company/zcode"
   ]
 }
 
@@ -52,10 +51,10 @@ const website = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Zcode",
-  url: "https://example.com",
+  url: "https://zcode.dev",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://example.com/?q={search_term_string}",
+    target: "https://zcode.dev/?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -66,7 +65,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <a
           href="#home"
