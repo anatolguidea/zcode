@@ -253,7 +253,7 @@ export function Navbar() {
             >
               <div className="flex h-full flex-col">
                 {/* Mobile menu header */}
-                <div className="flex items-center justify-between border-b border-border px-4 py-3 sm:px-6 sm:py-4">
+                <div className="flex items-center justify-between border-b border-border px-4 py-3">
                   <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                     Menu
                   </span>
@@ -269,9 +269,9 @@ export function Navbar() {
                   </motion.button>
                 </div>
 
-                {/* Mobile menu links */}
-                <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-6">
-                  <div className="space-y-1">
+                {/* Mobile menu links - column layout */}
+                <div className="flex-1 px-4 py-4">
+                  <div className="flex flex-col space-y-1.5">
                     {links.map((link, index) => {
                       const isActive = activeSection === link.href
                       return (
@@ -287,7 +287,7 @@ export function Navbar() {
                           <Link
                             href={link.href}
                             className={cn(
-                              "group relative flex min-h-[48px] items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium transition-all active:scale-[0.98]",
+                              "group relative flex min-h-[44px] items-center gap-3 rounded-xl px-4 py-2.5 text-base font-medium transition-all active:scale-[0.98]",
                               isActive
                                 ? "bg-gradient-to-r from-primary/10 via-pink-500/10 to-orange-500/10 text-foreground"
                                 : "text-muted-foreground active:bg-muted/50"
@@ -329,8 +329,8 @@ export function Navbar() {
                 </div>
 
                 {/* Mobile menu footer */}
-                <div className="border-t border-border p-4 sm:p-6">
-                  <div className="rounded-xl border border-border/50 bg-gradient-to-r from-primary/5 via-pink-500/5 to-orange-500/5 p-4 text-center">
+                <div className="border-t border-border p-3">
+                  <div className="rounded-xl border border-border/50 bg-gradient-to-r from-primary/5 via-pink-500/5 to-orange-500/5 p-3 text-center">
                     <p className="text-xs font-medium text-muted-foreground">
                       Ready to start your project?
                     </p>

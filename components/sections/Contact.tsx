@@ -189,7 +189,7 @@ export const ContactSection = memo(function ContactSection() {
                           <span>Get in touch</span>
                           <ArrowRight className="h-4 w-4" />
                         </span>
-                        <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-[600ms] ease-in-out group-hover/button:translate-x-full" />
+                        <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-700 ease-in-out group-hover/button:translate-x-full" />
                       </a>
                     </Button>
                   </CardContent>

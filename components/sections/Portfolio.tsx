@@ -108,7 +108,7 @@ export const PortfolioSection = memo(function PortfolioSection() {
                     {/* Image container */}
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-primary/20 via-pink-500/20 to-orange-500/20">
                       {item.image ? (
-                        <div className="relative h-full w-full transition-transform duration-[600ms] ease-out group-hover:scale-110">
+                        <div className="relative h-full w-full transition-transform duration-700 ease-out group-hover:scale-110">
                           <Image
                             src={item.image}
                             alt={item.title}
