@@ -190,9 +190,10 @@ export function Navbar() {
             type="button"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
-            className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-background/50 backdrop-blur-sm transition-colors hover:bg-muted/50 md:hidden"
+            className="relative z-50 flex h-11 w-11 min-w-[44px] items-center justify-center rounded-lg border border-border/50 bg-background/50 backdrop-blur-sm transition-colors active:bg-muted/50 active:scale-95 md:hidden"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.95 }}
+            style={{ WebkitTapHighlightColor: "transparent" }}
           >
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -231,8 +232,9 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setIsOpen(false)}
+              style={{ WebkitTapHighlightColor: "transparent" }}
             />
 
             {/* Menu Panel */}
@@ -245,28 +247,31 @@ export function Navbar() {
                 damping: 30,
                 stiffness: 300,
               }}
-              className="fixed right-0 top-0 z-50 h-full w-80 max-w-[85vw] border-l border-border bg-background/95 backdrop-blur-xl shadow-2xl md:hidden"
+              className="fixed right-0 top-0 z-50 h-full w-[280px] max-w-[90vw] border-l border-border bg-background/98 backdrop-blur-xl shadow-2xl md:hidden"
+              style={{ WebkitTapHighlightColor: "transparent" }}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="flex h-full flex-col">
                 {/* Mobile menu header */}
-                <div className="flex items-center justify-between border-b border-border px-6 py-4">
+                <div className="flex items-center justify-between border-b border-border px-4 py-3 sm:px-6 sm:py-4">
                   <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                     Menu
                   </span>
                   <motion.button
                     type="button"
                     aria-label="Close menu"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg transition-colors hover:bg-muted"
+                    className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg transition-colors active:bg-muted active:scale-95"
                     onClick={() => setIsOpen(false)}
                     whileTap={{ scale: 0.9 }}
+                    style={{ WebkitTapHighlightColor: "transparent" }}
                   >
-                    <X className="h-4 w-4" />
+                    <X className="h-5 w-5" />
                   </motion.button>
                 </div>
 
                 {/* Mobile menu links */}
-                <div className="flex-1 overflow-y-auto px-4 py-6">
-                  <div className="space-y-2">
+                <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-6">
+                  <div className="space-y-1">
                     {links.map((link, index) => {
                       const isActive = activeSection === link.href
                       return (
@@ -282,12 +287,13 @@ export function Navbar() {
                           <Link
                             href={link.href}
                             className={cn(
-                              "group relative flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium transition-all",
+                              "group relative flex min-h-[48px] items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium transition-all active:scale-[0.98]",
                               isActive
                                 ? "bg-gradient-to-r from-primary/10 via-pink-500/10 to-orange-500/10 text-foreground"
-                                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                                : "text-muted-foreground active:bg-muted/50"
                             )}
                             onClick={handleLinkClick}
+                            style={{ WebkitTapHighlightColor: "transparent" }}
                           >
                             {isActive && (
                               <motion.div
@@ -301,13 +307,10 @@ export function Navbar() {
                                 }}
                               />
                             )}
-                            <span className="relative z-10">{link.label}</span>
-                            <motion.div
-                              className="ml-auto opacity-0 transition-opacity group-hover:opacity-100"
-                              initial={false}
-                            >
+                            <span className="relative z-10 flex-1">{link.label}</span>
+                            {isActive && (
                               <motion.div
-                                className="h-1.5 w-1.5 rounded-full bg-primary"
+                                className="h-2 w-2 rounded-full bg-primary"
                                 animate={{
                                   scale: [1, 1.2, 1],
                                 }}
@@ -317,7 +320,7 @@ export function Navbar() {
                                   ease: "easeInOut",
                                 }}
                               />
-                            </motion.div>
+                            )}
                           </Link>
                         </motion.div>
                       )
@@ -326,15 +329,16 @@ export function Navbar() {
                 </div>
 
                 {/* Mobile menu footer */}
-                <div className="border-t border-border p-6">
+                <div className="border-t border-border p-4 sm:p-6">
                   <div className="rounded-xl border border-border/50 bg-gradient-to-r from-primary/5 via-pink-500/5 to-orange-500/5 p-4 text-center">
                     <p className="text-xs font-medium text-muted-foreground">
                       Ready to start your project?
                     </p>
                     <Link
                       href="#contact"
-                      className="mt-2 inline-block text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                      className="mt-2 inline-block min-h-[44px] px-4 py-2 text-sm font-semibold text-primary transition-colors active:text-primary/80 active:scale-95"
                       onClick={handleLinkClick}
+                      style={{ WebkitTapHighlightColor: "transparent" }}
                     >
                       Get in touch →
                     </Link>
