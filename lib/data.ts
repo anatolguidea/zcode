@@ -2,7 +2,7 @@ export const pricing = [
   {
     name: "Starter",
     description: "Perfect for launching your online presence with a professional, conversion-focused website.",
-    price: "$1,299",
+    price: "$200",
     features: [
       "Fully responsive design (mobile-first)",
       "Up to 5 pages with custom layouts",
@@ -19,7 +19,7 @@ export const pricing = [
   {
     name: "Professional",
     description: "Comprehensive solution for growing businesses ready to scale with advanced features and integrations.",
-    price: "$2,999",
+    price: "$450+",
     features: [
       "Everything in Starter",
       "Up to 10 pages with complex layouts",

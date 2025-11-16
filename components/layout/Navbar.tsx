@@ -100,11 +100,19 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 border-b transition-all duration-300",
         scrolled
-          ? "border-border/50 bg-background/95 backdrop-blur-md shadow-sm"
-          : "border-border/30 bg-background/80 backdrop-blur-sm"
+          ? "border-primary/30 shadow-lg shadow-primary/10"
+          : "border-primary/20 shadow-md shadow-primary/10"
       )}
+      style={{
+        backgroundColor: "hsl(222.2, 84%, 4.9%)",
+      }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      {/* Solid background layer */}
+      <div className="absolute inset-0 bg-background" />
+      {/* Glow effect overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-pink-500/8 to-orange-500/8 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-transparent pointer-events-none" />
+      <div className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
         <motion.div
           whileHover={{ scale: prefersReducedMotion ? 1 : 1.05 }}
@@ -190,10 +198,13 @@ export function Navbar() {
             type="button"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
-            className="relative z-50 flex h-11 w-11 min-w-[44px] items-center justify-center rounded-lg border border-border/50 bg-background/50 backdrop-blur-sm transition-colors active:bg-muted/50 active:scale-95 md:hidden"
+            className="relative z-50 flex h-11 w-11 min-w-[44px] items-center justify-center rounded-lg border border-primary/40 shadow-lg shadow-primary/15 transition-all hover:border-primary/60 hover:shadow-xl hover:shadow-primary/25 active:bg-primary/10 active:scale-95 md:hidden"
+            style={{
+              WebkitTapHighlightColor: "transparent",
+              backgroundColor: "hsl(222.2, 84%, 4.9%)",
+            }}
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.95 }}
-            style={{ WebkitTapHighlightColor: "transparent" }}
           >
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -247,23 +258,34 @@ export function Navbar() {
                 damping: 30,
                 stiffness: 300,
               }}
-              className="fixed right-0 top-0 z-50 h-full w-[280px] max-w-[90vw] border-l border-border bg-background/98 backdrop-blur-xl shadow-2xl md:hidden"
-              style={{ WebkitTapHighlightColor: "transparent" }}
+              className="fixed right-0 top-0 z-50 h-full w-[280px] max-w-[90vw] border-l border-primary/30 shadow-2xl shadow-primary/30 md:hidden"
+              style={{ 
+                WebkitTapHighlightColor: "transparent",
+                backgroundColor: "hsl(222.2, 84%, 4.9%)",
+              }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex h-full flex-col">
+              {/* Solid background layer */}
+              <div className="absolute inset-0 bg-background" />
+              {/* Glow effect inside menu */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-pink-500/10 to-orange-500/15 pointer-events-none" />
+              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-primary via-pink-500 to-orange-500 opacity-60" />
+              <div className="relative z-10 flex h-full flex-col">
                 {/* Mobile menu header */}
-                <div className="flex items-center justify-between border-b border-border px-4 py-3">
+                <div className="flex items-center justify-between border-b border-primary/30 bg-gradient-to-r from-primary/10 to-transparent px-4 py-3">
                   <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                     Menu
                   </span>
                   <motion.button
                     type="button"
                     aria-label="Close menu"
-                    className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg transition-colors active:bg-muted active:scale-95"
+                    className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg border border-primary/30 transition-all active:bg-primary/10 active:scale-95 hover:border-primary/50 hover:shadow-md hover:shadow-primary/25"
+                    style={{
+                      WebkitTapHighlightColor: "transparent",
+                      backgroundColor: "hsl(222.2, 84%, 4.9%)",
+                    }}
                     onClick={() => setIsOpen(false)}
                     whileTap={{ scale: 0.9 }}
-                    style={{ WebkitTapHighlightColor: "transparent" }}
                   >
                     <X className="h-5 w-5" />
                   </motion.button>
