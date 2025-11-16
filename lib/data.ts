@@ -72,11 +72,11 @@ export const services = [
 
 export const portfolio = [
   {
-    title: "E-Commerce Platform",
-    description: "Custom online store with seamless checkout, inventory management, and real-time analytics. Built to handle high traffic and scale with business growth.",
-    image: "/images/zCode-1.png",
-    href: "#",
-    tags: ["Next.js", "E-commerce", "Stripe"]
+    title: "Trucking Company Website",
+    description: "Website for a trucking company that provides transportation services for various industries. The website is designed to showcase the company's services, track the progress of shipments, and provide a platform for customers to request quotes and track their shipments.",
+    image: "/images/trucking.png",
+    href: "https://truckinglandingpage.vercel.app",
+    tags: ["Next.js", "Website", "Trucking"]
   },
   {
     title: "SaaS Dashboard",
