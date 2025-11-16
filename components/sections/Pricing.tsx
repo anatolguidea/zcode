@@ -10,31 +10,31 @@ import { useReducedMotion } from "@/hooks/useReducedMotion"
 
 const tierStyles = [
   {
-    // Starter - Blue/Cyan theme (cool, professional)
-    cardBg: "from-blue-500/10 via-transparent to-cyan-500/10",
-    iconGlow: "from-blue-500/30 via-cyan-500/30 to-blue-600/30",
-    accentText: "from-blue-400 via-cyan-400 to-blue-500",
-    checkBg: "from-blue-500 to-cyan-500",
-    buttonBg: "from-blue-500 to-cyan-500",
-    borderGlow: "from-blue-500/50 via-cyan-500/50 to-blue-600/50",
+    // Starter - Cyan/Blue theme (fresh, approachable)
+    cardBg: "bg-cyan-500/10",
+    iconGlow: "bg-cyan-500/30",
+    accentText: "text-cyan-400",
+    checkBg: "bg-cyan-500",
+    buttonBg: "bg-cyan-500",
+    borderGlow: "bg-cyan-500/50",
   },
   {
-    // Professional - Purple/Pink theme (vibrant, premium) - Highlighted
-    cardBg: "from-primary/10 via-transparent to-pink-500/10",
-    iconGlow: "from-primary/30 via-pink-500/30 to-fuchsia-500/30",
-    accentText: "from-primary via-pink-500 to-fuchsia-500",
-    checkBg: "from-primary via-pink-500 to-fuchsia-500",
-    buttonBg: "from-primary via-pink-500 to-fuchsia-500",
-    borderGlow: "from-primary/50 via-pink-500/50 to-fuchsia-500/50",
+    // Professional - Blurple theme (vibrant, premium) - Highlighted
+    cardBg: "bg-primary/10",
+    iconGlow: "bg-primary/30",
+    accentText: "text-primary",
+    checkBg: "bg-primary",
+    buttonBg: "bg-primary",
+    borderGlow: "bg-primary/50",
   },
   {
-    // Enterprise - Orange/Amber theme (warm, exclusive)
-    cardBg: "from-orange-500/10 via-transparent to-amber-500/10",
-    iconGlow: "from-orange-500/30 via-amber-500/30 to-orange-600/30",
-    accentText: "from-orange-400 via-amber-400 to-orange-500",
-    checkBg: "from-orange-500 to-amber-500",
-    buttonBg: "from-orange-500 to-amber-500",
-    borderGlow: "from-orange-500/50 via-amber-500/50 to-orange-600/50",
+    // Enterprise - Emerald/Teal theme (exclusive, premium)
+    cardBg: "bg-emerald-500/10",
+    iconGlow: "bg-emerald-500/30",
+    accentText: "text-emerald-400",
+    checkBg: "bg-emerald-500",
+    buttonBg: "bg-emerald-500",
+    borderGlow: "bg-emerald-500/50",
   },
 ]
 
@@ -70,13 +70,13 @@ export const PricingSection = memo(function PricingSection() {
       ref={ref}
       id="pricing"
       aria-labelledby="pricing-heading"
-      className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background via-muted/10 to-background"
+      className="relative overflow-hidden border-b border-border/50"
     >
       {/* Background decoration - simplified for performance */}
       {!prefersReducedMotion && (
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-primary/10 via-pink-500/10 to-orange-500/10 blur-3xl will-change-transform"
+            className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-3xl will-change-transform"
             animate={{
               scale: [1, 1.15, 1],
             }}
@@ -88,7 +88,7 @@ export const PricingSection = memo(function PricingSection() {
             style={{ transform: "translateZ(0)" }}
           />
           <motion.div
-            className="absolute right-1/4 bottom-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-pink-500/10 via-fuchsia-500/10 to-orange-500/10 blur-3xl will-change-transform"
+            className="absolute right-1/4 bottom-1/4 h-64 w-64 rounded-full bg-primary/10 blur-3xl will-change-transform"
             animate={{
               scale: [1, 1.2, 1],
             }}
@@ -102,7 +102,7 @@ export const PricingSection = memo(function PricingSection() {
         </div>
       )}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -120,13 +120,12 @@ export const PricingSection = memo(function PricingSection() {
           </motion.div>
           <h2
             id="pricing-heading"
-            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]"
           >
             Transparent Pricing, Tailored Solutions
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-            From startup launches to enterprise platforms, we offer flexible packages designed to scale with your
-            business. All projects include our commitment to quality, performance, and your success.
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Choose the package that fits your needs. From simple websites to complex IT solutions, we offer clear pricing with no hidden fees. Every project includes quality code, fast delivery, and ongoing support.
           </p>
         </motion.div>
 
@@ -134,7 +133,7 @@ export const PricingSection = memo(function PricingSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-8 md:grid-cols-3"
+          className="grid gap-6 md:grid-cols-3"
         >
           {pricing.map((tier, index) => {
             const styles = tierStyles[index] ?? tierStyles[0]
@@ -147,14 +146,14 @@ export const PricingSection = memo(function PricingSection() {
                 className="h-full"
               >
                 <motion.div
-                  className="group relative h-full overflow-hidden rounded-2xl border border-border/50 bg-background/60 backdrop-blur-xl shadow-xl transition-all duration-500"
+                  className="group relative h-full overflow-hidden rounded-xl border border-border/50 bg-background/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-background/60"
                   whileHover={{
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                    y: -4,
                   }}
                 >
-                  {/* Animated gradient background */}
+                  {/* Animated background */}
                   <motion.div
-                    className={cn("absolute inset-0 bg-gradient-to-b", styles.cardBg)}
+                    className={cn("absolute inset-0", styles.cardBg)}
                     initial={{ opacity: 0.5 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -163,7 +162,7 @@ export const PricingSection = memo(function PricingSection() {
                   {/* Glowing border on hover */}
                   <motion.div
                     className={cn(
-                      "absolute -inset-0.5 rounded-2xl bg-gradient-to-r opacity-0 blur transition-opacity duration-500",
+                      "absolute -inset-0.5 rounded-2xl opacity-0 blur transition-opacity duration-500",
                       styles.borderGlow
                     )}
                     whileHover={{ opacity: 1 }}
@@ -177,14 +176,14 @@ export const PricingSection = memo(function PricingSection() {
                       animate={isInView ? { rotate: -12, scale: 1 } : {}}
                       transition={{ delay: 0.5 + index * 0.2, type: "spring" }}
                     >
-                      <div className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary via-pink-500 to-fuchsia-500 px-4 py-1.5 text-xs font-bold text-white shadow-xl">
+                      <div className="flex items-center gap-1.5 rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white shadow-xl shadow-primary/40">
                         <Star className="h-3 w-3 fill-white" />
                         <span>POPULAR</span>
                       </div>
                     </motion.div>
                   )}
 
-                  <div className="relative z-10 flex h-full flex-col p-8">
+                  <div className="relative z-10 flex h-full flex-col p-6 sm:p-8">
                     {/* Icon */}
                     <motion.div
                       className="relative mx-auto mb-6 h-16 w-16"
@@ -193,7 +192,7 @@ export const PricingSection = memo(function PricingSection() {
                     >
                       <motion.div
                         className={cn(
-                          "absolute inset-0 rounded-full bg-gradient-to-tr blur-xl",
+                          "absolute inset-0 rounded-full blur-xl",
                           styles.iconGlow
                         )}
                         animate={{
@@ -234,10 +233,10 @@ export const PricingSection = memo(function PricingSection() {
                       className="mb-8 text-center"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="inline-block rounded-2xl border border-primary/20 bg-gradient-to-r from-background/90 to-background/70 px-8 py-4 shadow-inner backdrop-blur-sm">
+                      <div className="inline-block rounded-2xl border border-primary/20 bg-background/90 px-8 py-4 shadow-inner backdrop-blur-sm">
                         <motion.span
                           className={cn(
-                            "bg-gradient-to-r bg-clip-text text-4xl font-bold text-transparent",
+                            "text-4xl font-bold",
                             styles.accentText
                           )}
                         >
@@ -265,7 +264,7 @@ export const PricingSection = memo(function PricingSection() {
                         >
                           <motion.div
                             className={cn(
-                              "mt-0.5 flex-shrink-0 rounded-full bg-gradient-to-r p-1.5 shadow-md",
+                              "mt-0.5 flex-shrink-0 rounded-full p-1.5 shadow-md",
                               styles.checkBg
                             )}
                             whileHover={{ scale: 1.2, rotate: 360 }}
@@ -282,10 +281,10 @@ export const PricingSection = memo(function PricingSection() {
                     <div className="mt-auto space-y-3">
                       <Button
                         asChild
-                        className={cn(
-                          "group relative w-full overflow-hidden shadow-lg bg-gradient-to-r text-primary-foreground",
-                          styles.buttonBg
-                        )}
+                          className={cn(
+                            "group relative w-full overflow-hidden shadow-lg shadow-primary/20 text-primary-foreground hover:shadow-xl hover:shadow-primary/30 transition-all duration-300",
+                            styles.buttonBg
+                          )}
                       >
                         <a
                           href={tier.cta.href}
@@ -301,7 +300,7 @@ export const PricingSection = memo(function PricingSection() {
                       <Button
                         asChild
                         variant="outline"
-                        className="w-full border-primary/20 bg-transparent backdrop-blur-sm hover:bg-primary/5"
+                        className="w-full border-primary/30 bg-transparent backdrop-blur-sm hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
                       >
                         <a
                           href="#contact"
@@ -325,16 +324,16 @@ export const PricingSection = memo(function PricingSection() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-12"
         >
-          <div className="group relative mx-auto max-w-2xl overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 via-pink-500/10 to-orange-500/10 p-8 backdrop-blur-xl shadow-xl transition-all duration-500 hover:border-primary/50 hover:shadow-2xl">
+          <div className="group relative mx-auto max-w-2xl overflow-hidden rounded-2xl border border-primary/30 bg-primary/10 p-8 backdrop-blur-xl shadow-xl shadow-primary/10 transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20">
             {/* Animated gradient background */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-primary/5 via-pink-500/5 to-orange-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              className="absolute inset-0 bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               initial={false}
             />
 
             {/* Glowing border */}
             <motion.div
-              className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary/50 via-pink-500/50 to-orange-500/50 opacity-0 blur transition-opacity duration-500 group-hover:opacity-30"
+              className="absolute -inset-0.5 rounded-2xl bg-primary/50 opacity-0 blur transition-opacity duration-500 group-hover:opacity-30"
               initial={false}
             />
 
@@ -347,7 +346,7 @@ export const PricingSection = memo(function PricingSection() {
               >
                 <div className="relative">
                   <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-pink-500/30 to-orange-500/30 blur-xl"
+                    className="absolute inset-0 rounded-full bg-primary/30 blur-xl"
                     animate={
                       prefersReducedMotion
                         ? {}
@@ -362,7 +361,7 @@ export const PricingSection = memo(function PricingSection() {
                       ease: "easeInOut",
                     }}
                   />
-                  <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-primary via-pink-500 to-orange-500 text-background shadow-xl">
+                  <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-primary text-background shadow-xl">
                     <ShieldCheck className="h-8 w-8" aria-hidden="true" />
                   </div>
                 </div>

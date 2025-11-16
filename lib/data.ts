@@ -1,7 +1,7 @@
 export const pricing = [
   {
     name: "Starter",
-    description: "Perfect for launching your online presence with a professional, conversion-focused website.",
+    description: "Perfect for small businesses and startups ready to establish their online presence with a professional website.",
     price: "$200",
     features: [
       "Fully responsive design (mobile-first)",
@@ -18,7 +18,7 @@ export const pricing = [
   },
   {
     name: "Professional",
-    description: "Comprehensive solution for growing businesses ready to scale with advanced features and integrations.",
+    description: "Ideal for growing businesses that need advanced features, integrations, and a website that scales with their success.",
     price: "$450+",
     features: [
       "Everything in Starter",
@@ -36,7 +36,7 @@ export const pricing = [
   },
   {
     name: "Enterprise",
-    description: "Tailored solutions for ambitious projects requiring custom architecture and dedicated support.",
+    description: "For ambitious projects that demand custom architecture, advanced IT solutions, and dedicated ongoing support.",
     price: "Custom",
     features: [
       "Everything in Professional",
@@ -58,44 +58,44 @@ export const pricing = [
 export const services = [
   {
     title: "Web Design",
-    desc: "Pixel-perfect, conversion-optimized designs that blend aesthetics with functionality. From wireframes to high-fidelity prototypes, we craft interfaces that users love and businesses trust."
+    desc: "Custom designs that convert visitors into customers. We create beautiful, user-friendly interfaces that reflect your brand and drive results—no templates, just tailored solutions."
   },
   {
     title: "Web Development",
-    desc: "Modern, scalable web applications built with Next.js, TypeScript, and best practices. Fast, accessible, and maintainable code that performs beautifully across all devices and browsers."
+    desc: "Built with modern technologies like Next.js and TypeScript. Fast, secure, and scalable websites that perform flawlessly on any device. Code that's clean, maintainable, and built to last."
   },
   {
-    title: "Performance & SEO",
-    desc: "Lightning-fast load times, perfect Core Web Vitals scores, and SEO strategies that drive organic traffic. We optimize every aspect for maximum visibility and user experience."
+    title: "IT Solutions",
+    desc: "Custom backend systems, API integrations, database solutions, and automation tools. We build the technical infrastructure your business needs to operate efficiently and scale."
   }
 ]
 
 export const portfolio = [
   {
     title: "E-Commerce Platform",
-    description: "Modern online store with seamless checkout, inventory management, and real-time analytics.",
+    description: "Custom online store with seamless checkout, inventory management, and real-time analytics. Built to handle high traffic and scale with business growth.",
     image: "/images/zCode-1.png",
     href: "#",
     tags: ["Next.js", "E-commerce", "Stripe"]
   },
   {
     title: "SaaS Dashboard",
-    description: "Complex data visualization platform with real-time updates and advanced filtering capabilities.",
+    description: "Complex data visualization platform with real-time updates and advanced filtering. Custom backend architecture supporting thousands of concurrent users.",
     image: "/images/zCode-1.png",
     href: "#",
-    tags: ["React", "TypeScript", "Analytics"]
+    tags: ["React", "TypeScript", "Backend"]
   },
   {
-    title: "Corporate Landing Page",
-    description: "High-converting landing page with A/B testing, lead capture forms, and conversion tracking.",
+    title: "Corporate Website",
+    description: "High-performing corporate website with custom CMS, multi-language support, and advanced security features. Fast, professional, and built to impress.",
     image: "/images/zCode-1.png",
     href: "#",
-    tags: ["Next.js", "Marketing", "SEO"]
+    tags: ["Next.js", "CMS", "SEO"]
   }
 ]
 
 export const contactLinks = {
-  telegram: "https://t.me/yourhandle",
-  discord: "https://discord.com/users/yourid",
-  email: "mailto:hello@zcode.dev"
+  telegram: "https://t.me/whydk1",
+  discord: "https://discord.com/users/whydk2",
+  email: "guidea.anatol@gmail.com"
 }

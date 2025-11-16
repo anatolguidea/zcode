@@ -14,25 +14,22 @@ const contactMethods = [
     icon: Send,
     href: contactLinks.telegram,
     description: "Quick async communication",
-    color: "from-primary via-pink-500 to-orange-500",
-    hoverColor: "hover:from-primary/90 hover:via-pink-500/90 hover:to-orange-500/90",
+    brandColor: "#0088cc",
   },
   {
     name: "Discord",
     icon: MessageCircle,
     href: contactLinks.discord,
     description: "Community & support",
-    color: "from-pink-500 via-fuchsia-500 to-orange-500",
-    hoverColor: "hover:from-pink-500/90 hover:via-fuchsia-500/90 hover:to-orange-500/90",
+    brandColor: "#5865F2",
   },
   {
     name: "Email",
     icon: Mail,
     href: contactLinks.email,
     description: "Formal inquiries",
-    color: "from-primary via-pink-500 to-orange-500",
-    hoverColor: "hover:from-primary/90 hover:via-pink-500/90 hover:to-orange-500/90",
     primary: true,
+    brandColor: "#EA4335",
   },
 ]
 
@@ -68,7 +65,7 @@ export const ContactSection = memo(function ContactSection() {
       ref={ref}
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative overflow-hidden bg-gradient-to-b from-background via-muted/10 to-background"
+      className="relative overflow-hidden border-b border-border/50"
     >
       {/* Animated background - simplified */}
       {!prefersReducedMotion && (
@@ -100,7 +97,7 @@ export const ContactSection = memo(function ContactSection() {
         </div>
       )}
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:py-28">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:py-20 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -120,11 +117,10 @@ export const ContactSection = memo(function ContactSection() {
             id="contact-heading"
             className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
           >
-            Ready to Start Your Project?
+            Ready to Build Your Solution?
           </h2>
           <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-            Let&apos;s discuss how we can bring your vision to life. Reach out through your preferred channel, and
-            we&apos;ll get back to you with a detailed proposal and timeline tailored to your needs.
+            Let's talk about your project. Whether you need a website, web app, or custom IT solution, we're here to help. Reach out through any channel—we respond within 12 hours.
           </p>
         </motion.div>
 
@@ -145,15 +141,17 @@ export const ContactSection = memo(function ContactSection() {
                 className="h-full"
               >
                 <Card className="group relative h-full overflow-hidden border-border/50 bg-background/60 backdrop-blur-xl shadow-lg transition-all duration-500 hover:shadow-2xl">
-                  {/* Gradient background on hover */}
+                  {/* Solid background on hover */}
                   <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${method.color} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}
+                    className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10"
+                    style={{ backgroundColor: method.brandColor }}
                     initial={false}
                   />
 
                   {/* Glowing border */}
                   <motion.div
-                    className={`absolute -inset-0.5 rounded-xl bg-gradient-to-r ${method.color} opacity-0 blur transition-opacity duration-500 group-hover:opacity-30`}
+                    className="absolute -inset-0.5 rounded-xl opacity-0 blur transition-opacity duration-500 group-hover:opacity-30"
+                    style={{ backgroundColor: method.brandColor }}
                     initial={false}
                   />
 
@@ -161,7 +159,8 @@ export const ContactSection = memo(function ContactSection() {
                     {/* Icon */}
                     <div className="mb-6 transition-transform duration-300 group-hover:scale-110">
                       <div
-                        className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r ${method.color} text-background shadow-xl transition-shadow duration-300 group-hover:shadow-2xl`}
+                        className="inline-flex h-16 w-16 items-center justify-center rounded-2xl text-background shadow-xl transition-shadow duration-300 group-hover:shadow-2xl"
+                        style={{ backgroundColor: method.brandColor }}
                       >
                         <Icon className="h-7 w-7" aria-hidden="true" />
                       </div>
@@ -177,7 +176,8 @@ export const ContactSection = memo(function ContactSection() {
                     <Button
                       asChild
                       size="lg"
-                      className={`group relative w-full overflow-hidden bg-gradient-to-r ${method.color} text-background shadow-lg ${method.hoverColor}`}
+                      className="group relative w-full overflow-hidden text-background shadow-lg transition-all hover:opacity-90"
+                      style={{ backgroundColor: method.brandColor }}
                     >
                       <a
                         href={method.href}

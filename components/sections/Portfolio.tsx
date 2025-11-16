@@ -40,13 +40,13 @@ export const PortfolioSection = memo(function PortfolioSection() {
       ref={ref}
       id="portfolio"
       aria-labelledby="portfolio-heading"
-      className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background via-muted/10 to-background"
+      className="relative overflow-hidden border-b border-border/50"
     >
       {/* Background decoration - simplified */}
       {!prefersReducedMotion && (
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute left-1/3 top-1/3 h-96 w-96 rounded-full bg-gradient-to-r from-primary/5 via-pink-500/5 to-orange-500/5 blur-3xl will-change-transform"
+            className="absolute left-1/3 top-1/3 h-96 w-96 rounded-full bg-primary/5 blur-3xl will-change-transform"
             animate={{
               scale: [1, 1.2, 1],
             }}
@@ -60,7 +60,7 @@ export const PortfolioSection = memo(function PortfolioSection() {
         </div>
       )}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -69,13 +69,12 @@ export const PortfolioSection = memo(function PortfolioSection() {
         >
           <h2
             id="portfolio-heading"
-            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]"
           >
-            Our Portfolio
+            Our Recent Work
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-            Explore our recent work—from high-converting landing pages to complex web applications. Each project
-            showcases our expertise in design, development, and delivering exceptional user experiences.
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Real projects, real results. See how we've helped businesses solve problems and achieve their goals with custom websites and IT solutions.
           </p>
         </motion.div>
 
@@ -83,11 +82,11 @@ export const PortfolioSection = memo(function PortfolioSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {portfolio.map((item, index) => (
             <motion.div key={item.title} variants={itemVariants}>
-              <Card className="group relative h-full overflow-hidden border-border/50 bg-background/60 backdrop-blur-xl shadow-lg transition-all duration-500 hover:shadow-2xl">
+                <Card className="group relative h-full overflow-hidden border-border/50 bg-background/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-background/60">
                 {/* Gradient overlay on hover */}
                 <motion.div
                   className="absolute inset-0 z-10 bg-gradient-to-t from-background/90 via-background/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -106,7 +105,7 @@ export const PortfolioSection = memo(function PortfolioSection() {
                     className="flex h-full flex-col transition-transform duration-300 group-hover:scale-[1.02]"
                   >
                     {/* Image container */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-primary/20 via-pink-500/20 to-orange-500/20">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-primary/20">
                       {item.image ? (
                         <div className="relative h-full w-full transition-transform duration-700 ease-out group-hover:scale-110">
                           <Image
@@ -144,7 +143,7 @@ export const PortfolioSection = memo(function PortfolioSection() {
 
                       {/* View project button - appears on hover */}
                       <div className="absolute bottom-4 right-4 z-30 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl transition-transform duration-300 hover:rotate-45 hover:scale-110 active:scale-95">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl shadow-primary/30 transition-all duration-300 hover:rotate-45 hover:scale-110 hover:shadow-2xl hover:shadow-primary/40 active:scale-95">
                           <ArrowUpRight className="h-5 w-5" />
                         </div>
                       </div>

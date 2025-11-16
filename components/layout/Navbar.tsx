@@ -109,9 +109,10 @@ export function Navbar() {
     >
       {/* Solid background layer */}
       <div className="absolute inset-0 bg-background" />
-      {/* Glow effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-pink-500/8 to-orange-500/8 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-transparent pointer-events-none" />
+      {/* Subtle background overlay */}
+      <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+      {/* Clean border */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-border/50" />
       <div className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
         <motion.div
@@ -124,13 +125,17 @@ export function Navbar() {
             onClick={handleLinkClick}
           >
             <motion.div
-              className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-primary via-pink-500 to-orange-500 text-background shadow-lg"
-              whileHover={{ rotate: prefersReducedMotion ? 0 : 360 }}
+              className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-background shadow-lg shadow-primary/30"
+              whileHover={{ 
+                rotate: prefersReducedMotion ? 0 : 360,
+                scale: 1.1,
+                boxShadow: "0 0 20px rgba(139, 92, 246, 0.5)"
+              }}
               transition={{ duration: 0.6 }}
             >
               <Code2 className="h-5 w-5" aria-hidden="true" />
               <motion.div
-                className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary via-pink-500 to-orange-500 opacity-0 blur-md transition-opacity group-hover:opacity-50"
+                className="absolute inset-0 rounded-lg bg-primary opacity-0 blur-md transition-opacity group-hover:opacity-60"
                 initial={false}
               />
             </motion.div>
@@ -165,7 +170,7 @@ export function Navbar() {
                   {link.label}
                   {isActive && (
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-pink-500 to-orange-500"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary shadow-[0_0_8px_rgba(139,92,246,0.6)]"
                       layoutId="activeSection"
                       initial={false}
                       transition={{
@@ -177,7 +182,7 @@ export function Navbar() {
                   )}
                   {!isActive && (
                     <motion.div
-                      className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-primary via-pink-500 to-orange-500"
+                      className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-primary shadow-[0_0_8px_rgba(139,92,246,0.6)]"
                       whileHover={{
                         width: "100%",
                         left: 0,
@@ -268,11 +273,11 @@ export function Navbar() {
               {/* Solid background layer */}
               <div className="absolute inset-0 bg-background" />
               {/* Glow effect inside menu */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-pink-500/10 to-orange-500/15 pointer-events-none" />
-              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-primary via-pink-500 to-orange-500 opacity-60" />
+              <div className="absolute inset-0 bg-primary/15 pointer-events-none" />
+              <div className="absolute left-0 top-0 h-full w-1 bg-primary opacity-60" />
               <div className="relative z-10 flex h-full flex-col">
                 {/* Mobile menu header */}
-                <div className="flex items-center justify-between border-b border-primary/30 bg-gradient-to-r from-primary/10 to-transparent px-4 py-3">
+                <div className="flex items-center justify-between border-b border-primary/30 bg-primary/10 px-4 py-3">
                   <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                     Menu
                   </span>
@@ -311,7 +316,7 @@ export function Navbar() {
                             className={cn(
                               "group relative flex min-h-[44px] items-center gap-3 rounded-xl px-4 py-2.5 text-base font-medium transition-all active:scale-[0.98]",
                               isActive
-                                ? "bg-gradient-to-r from-primary/10 via-pink-500/10 to-orange-500/10 text-foreground"
+                                ? "bg-primary/10 text-foreground"
                                 : "text-muted-foreground active:bg-muted/50"
                             )}
                             onClick={handleLinkClick}
@@ -319,7 +324,7 @@ export function Navbar() {
                           >
                             {isActive && (
                               <motion.div
-                                className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full bg-gradient-to-b from-primary via-pink-500 to-orange-500"
+                                className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full bg-primary"
                                 layoutId="mobileActiveSection"
                                 initial={false}
                                 transition={{
@@ -352,7 +357,7 @@ export function Navbar() {
 
                 {/* Mobile menu footer */}
                 <div className="border-t border-border p-3">
-                  <div className="rounded-xl border border-border/50 bg-gradient-to-r from-primary/5 via-pink-500/5 to-orange-500/5 p-3 text-center">
+                  <div className="rounded-xl border border-border/50 bg-primary/5 p-3 text-center">
                     <p className="text-xs font-medium text-muted-foreground">
                       Ready to start your project?
                     </p>

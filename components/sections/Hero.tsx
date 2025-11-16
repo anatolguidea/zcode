@@ -26,7 +26,7 @@ export function Hero() {
     <section
       ref={containerRef}
       id="home"
-      className="relative min-h-screen overflow-hidden border-b border-border bg-gradient-to-b from-background via-background to-muted/20"
+      className="relative min-h-screen overflow-hidden border-b border-border/50"
       aria-labelledby="hero-heading"
     >
       {/* Animated background particles - reduced for performance */}
@@ -67,7 +67,7 @@ export function Hero() {
       {!prefersReducedMotion && (
         <>
           <motion.div
-            className="absolute -left-1/4 top-1/4 h-96 w-96 rounded-full bg-gradient-to-r from-primary/30 via-pink-500/20 to-orange-500/20 blur-3xl will-change-transform"
+            className="absolute -left-1/4 top-1/4 h-96 w-96 rounded-full bg-primary/30 blur-3xl will-change-transform"
             animate={{
               scale: [1, 1.15, 1],
             }}
@@ -79,7 +79,7 @@ export function Hero() {
             style={{ transform: "translateZ(0)" }}
           />
           <motion.div
-            className="absolute -right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-gradient-to-r from-pink-500/30 via-fuchsia-500/30 to-orange-500/20 blur-3xl will-change-transform"
+            className="absolute -right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-primary/30 blur-3xl will-change-transform"
             animate={{
               scale: [1, 1.2, 1],
             }}
@@ -97,12 +97,12 @@ export function Hero() {
         style={{ y, opacity }}
         className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-4 py-16 md:py-24"
       >
-        <div className="grid w-full gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16">
+        <div className="grid w-full gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-20">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-6"
+            className="space-y-8"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-medium text-primary backdrop-blur-sm"
             >
               <Sparkles className="h-3 w-3" />
-              <span>Premium Web Development Services</span>
+              <span>Expert IT Solutions & Web Development</span>
             </motion.div>
 
             <div className="space-y-4">
@@ -120,23 +120,23 @@ export function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-balance text-4xl font-bold tracking-tight sm:text-6xl xl:text-7xl"
+                className="text-balance text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1]"
               >
                 We Build{" "}
-                <span className="relative inline-block bg-gradient-to-r from-primary via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                  Digital Experiences
+                <span className="relative inline-block bg-gradient-to-r from-[#5865F2] via-[#7289DA] to-[#5865F2] bg-clip-text text-transparent">
+                  Websites & IT Solutions
                 </span>
                 <br />
-                That Convert
+                That Drive Your Business Forward
               </motion.h1>
 
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="flex items-center gap-2 text-xl font-semibold sm:text-2xl md:text-3xl"
+                className="flex items-center gap-2 text-lg font-medium text-muted-foreground sm:text-xl md:text-2xl"
               >
-                <span className="hero-typing">Modern Web Development Agency</span>
+                <span className="hero-typing">Custom Web Development & IT Services</span>
                 {!prefersReducedMotion && (
                   <motion.span
                     className="hero-cursor text-primary"
@@ -155,8 +155,7 @@ export function Hero() {
                 transition={{ delay: 0.7, duration: 0.6 }}
                 className="max-w-xl text-base text-muted-foreground md:text-lg"
               >
-                Transform your vision into high-performing websites and web applications. We combine cutting-edge
-                technology with strategic design to create digital products that drive results and exceed expectations.
+                Stop settling for generic templates. Get a custom website and IT solutions built specifically for your business. Fast, scalable, and designed to grow with you.
               </motion.p>
             </div>
 
@@ -169,7 +168,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="group relative gap-2 overflow-hidden bg-gradient-to-r from-primary via-pink-500 to-orange-500 hover:from-primary/90 hover:via-pink-500/90 hover:to-orange-500/90"
+                className="group relative gap-2 overflow-hidden bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
               >
                 <a href="#contact">
                   <motion.span
@@ -188,7 +187,7 @@ export function Hero() {
                   />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="backdrop-blur-sm">
+              <Button asChild variant="outline" size="lg" className="backdrop-blur-sm border-primary/30 hover:border-primary/50 hover:bg-primary/10 hover:text-primary transition-all duration-300">
                 <motion.a
                   href="#portfolio"
                   whileHover={{ scale: 1.05 }}
@@ -206,9 +205,9 @@ export function Hero() {
               className="grid gap-4 pt-6 md:grid-cols-3"
             >
               {[
-                { icon: Code2, label: "Cutting-Edge Tech", color: "from-primary via-pink-500 to-orange-500" },
-                { icon: Zap, label: "Rapid Delivery", color: "from-pink-500 via-fuchsia-500 to-orange-500" },
-                { icon: Shield, label: "Quality Assured", color: "from-orange-500 via-amber-500 to-pink-500" },
+                { icon: Code2, label: "Cutting-Edge Tech", color: "bg-primary" },
+                { icon: Zap, label: "Rapid Delivery", color: "bg-primary" },
+                { icon: Shield, label: "Quality Assured", color: "bg-primary" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -216,11 +215,15 @@ export function Hero() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="group flex items-center gap-3 rounded-xl border border-primary/10 bg-gradient-to-r from-primary/5 to-transparent p-4 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-lg"
+                  className="group flex items-center gap-3 rounded-xl border border-primary/20 bg-primary/10 p-4 backdrop-blur-sm transition-all hover:border-primary/40 hover:bg-primary/15 hover:shadow-lg hover:shadow-primary/20"
                 >
                   <motion.span
-                    className={`rounded-full bg-gradient-to-r ${item.color} p-2.5 text-background shadow-lg`}
-                    whileHover={{ rotate: 360 }}
+                    className={`rounded-full ${item.color} p-2.5 text-background shadow-lg shadow-primary/30`}
+                    whileHover={{ 
+                      rotate: 360,
+                      scale: 1.1,
+                      boxShadow: "0 0 20px rgba(139, 92, 246, 0.5)"
+                    }}
                     transition={{ duration: 0.6 }}
                   >
                     <item.icon className="h-4 w-4" aria-hidden="true" />
@@ -242,7 +245,7 @@ export function Hero() {
                 transition={{ type: "spring", stiffness: 400 }}
               >
                 <motion.div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-pink-500 to-orange-500 opacity-70 blur-md"
+                  className="absolute inset-0 rounded-full bg-primary opacity-70 blur-md"
                   animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.7, 0.5, 0.7],
@@ -253,7 +256,7 @@ export function Hero() {
                     ease: "easeInOut",
                   }}
                 />
-                <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-background bg-gradient-to-r from-primary via-pink-500 to-orange-500 shadow-lg">
+                <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-background bg-primary shadow-lg">
                   <div className="flex h-full w-full items-center justify-center text-lg font-bold text-background">
                     Z
                   </div>
@@ -278,7 +281,7 @@ export function Hero() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <motion.div
-                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/30 via-pink-500/20 to-orange-500/20 opacity-70 blur-3xl"
+                className="absolute inset-0 rounded-3xl bg-primary/30 opacity-70 blur-3xl"
                 animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.7, 0.5, 0.7],

@@ -46,7 +46,7 @@ export const ServicesSection = memo(function ServicesSection() {
       ref={ref}
       id="services"
       aria-labelledby="services-heading"
-      className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background via-muted/5 to-background"
+      className="relative overflow-hidden border-b border-border/50"
     >
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-30">
@@ -56,7 +56,7 @@ export const ServicesSection = memo(function ServicesSection() {
       {/* Floating orbs - simplified */}
       {!prefersReducedMotion && (
         <motion.div
-          className="absolute right-1/4 top-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-primary/10 via-pink-500/10 to-orange-500/10 blur-3xl will-change-transform"
+          className="absolute right-1/4 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-3xl will-change-transform"
           animate={{
             scale: [1, 1.15, 1],
           }}
@@ -69,7 +69,7 @@ export const ServicesSection = memo(function ServicesSection() {
         />
       )}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -87,14 +87,12 @@ export const ServicesSection = memo(function ServicesSection() {
           </motion.div>
           <h2
             id="services-heading"
-            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]"
           >
-            Comprehensive Web Solutions
+            What We Do
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-            From initial concept to launch and beyond, we provide end-to-end services that transform your ideas into
-            high-performing digital products. Every project is crafted with precision, performance, and your success
-            in mind.
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            We're an IT agency specializing in custom websites and technical solutions. From simple landing pages to complex web applications, we build solutions that solve real business problems.
           </p>
         </motion.div>
 
@@ -102,7 +100,7 @@ export const ServicesSection = memo(function ServicesSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-8 md:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service, index) => {
             const Icon = serviceIcons[service.title as keyof typeof serviceIcons] || Code2
@@ -114,16 +112,21 @@ export const ServicesSection = memo(function ServicesSection() {
                 whileHover={prefersReducedMotion ? {} : { y: -10 }}
                 className="h-full"
               >
-                <Card className="group relative h-full overflow-hidden border-border/50 bg-background/60 backdrop-blur-xl shadow-lg transition-all duration-500 hover:shadow-2xl">
-                  {/* Animated gradient background */}
+                <Card className="group relative h-full overflow-hidden border-border/50 bg-background/60 backdrop-blur-xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:border-primary/30">
+                  {/* Animated background */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 via-pink-500/5 to-orange-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    className="absolute inset-0 bg-primary/8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     initial={false}
                   />
 
-                  {/* Glowing border */}
+                  {/* Enhanced glowing border */}
                   <motion.div
-                    className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-primary/20 via-pink-500/20 to-orange-500/20 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100"
+                    className="absolute -inset-0.5 rounded-lg bg-primary/30 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100"
+                    initial={false}
+                  />
+                  {/* Purple shadow on hover */}
+                  <motion.div
+                    className="absolute inset-0 rounded-lg shadow-[0_0_30px_rgba(139,92,246,0.2)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     initial={false}
                   />
 
@@ -134,7 +137,7 @@ export const ServicesSection = memo(function ServicesSection() {
                       transition={{ duration: 0.6 }}
                     >
                       <motion.span
-                        className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-pink-500/30 to-orange-500/30 blur-lg"
+                        className="absolute inset-0 rounded-full bg-primary/30 blur-lg"
                         animate={{
                           scale: [1, 1.2, 1],
                           opacity: [0.5, 0.8, 0.5],
@@ -145,7 +148,7 @@ export const ServicesSection = memo(function ServicesSection() {
                           ease: "easeInOut",
                         }}
                       />
-                      <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-primary via-pink-500 to-orange-500 text-background shadow-xl">
+                      <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-background shadow-xl shadow-primary/30">
                         <Icon className="h-6 w-6" aria-hidden="true" />
                       </span>
                     </motion.div>
@@ -153,7 +156,7 @@ export const ServicesSection = memo(function ServicesSection() {
                       <CardTitle className="text-xl">{service.title}</CardTitle>
                     </div>
                     <div className="opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                      <ArrowRight className="h-5 w-5 text-primary" />
+                      <ArrowRight className="h-5 w-5 text-primary drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]" />
                     </div>
                   </CardHeader>
 

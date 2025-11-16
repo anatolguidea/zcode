@@ -6,23 +6,23 @@ import { Sparkles, Code2, Zap, Users, Clock } from "lucide-react"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 
 const stats = [
-  { label: "Projects delivered", value: "50+", icon: Code2, color: "from-primary via-pink-500 to-orange-500" },
-  { label: "Average response", value: "< 12h", icon: Clock, color: "from-pink-500 via-fuchsia-500 to-orange-500" },
-  { label: "Client satisfaction", value: "98%", icon: Users, color: "from-orange-500 via-amber-500 to-pink-500" },
+  { label: "Projects delivered", value: "50+", icon: Code2, color: "bg-primary" },
+  { label: "Average response", value: "< 12h", icon: Clock, color: "bg-primary" },
+  { label: "Client satisfaction", value: "98%", icon: Users, color: "bg-primary" },
 ]
 
 const values = [
   {
-    title: "Excellence",
-    description: "We don&apos;t settle for good enough. Every line of code, every design decision, and every interaction is crafted with meticulous attention to detail and purpose.",
+    title: "Quality First",
+    description: "We write clean code, build fast websites, and create solutions that actually work. No shortcuts, no compromises—just quality that lasts.",
   },
   {
-    title: "Partnership",
-    description: "Your success is our success. We work closely with you throughout the entire process, ensuring transparency, clear communication, and alignment with your goals.",
+    title: "Client Focused",
+    description: "Your success is our priority. We communicate clearly, deliver on time, and build exactly what you need. No surprises, just results.",
   },
   {
-    title: "Innovation",
-    description: "We stay at the forefront of web technologies and best practices, bringing cutting-edge solutions that give your business a competitive edge.",
+    title: "Modern Tech",
+    description: "We use the latest technologies and best practices to build solutions that are fast, secure, and scalable. Your website won't just work today—it'll work for years to come.",
   },
 ]
 
@@ -36,7 +36,7 @@ export const AboutSection = memo(function AboutSection() {
       ref={ref}
       id="about"
       aria-labelledby="about-heading"
-      className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background via-muted/10 to-background"
+      className="relative overflow-hidden border-b border-border/50"
     >
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-20">
@@ -46,7 +46,7 @@ export const AboutSection = memo(function AboutSection() {
       {/* Floating elements - simplified */}
       {!prefersReducedMotion && (
         <motion.div
-          className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-gradient-to-r from-primary/5 via-pink-500/5 to-orange-500/5 blur-3xl will-change-transform"
+          className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-primary/5 blur-3xl will-change-transform"
           animate={{
             scale: [1, 1.15, 1],
           }}
@@ -59,7 +59,7 @@ export const AboutSection = memo(function AboutSection() {
         />
       )}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -77,9 +77,9 @@ export const AboutSection = memo(function AboutSection() {
           </motion.div>
           <h2
             id="about-heading"
-            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]"
           >
-            About us
+            We Build Custom Websites & IT Solutions
           </h2>
         </motion.div>
 
@@ -98,9 +98,7 @@ export const AboutSection = memo(function AboutSection() {
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                Zcode is a modern web development agency specializing in creating exceptional digital experiences. We
-                partner with forward-thinking businesses, startups, and entrepreneurs to build websites and applications
-                that not only look stunning but drive measurable results.
+                Zcode is an IT agency that builds custom websites and technical solutions. We work with businesses that need more than a template—they need a solution that's built specifically for them.
               </motion.p>
               <motion.p
                 className="text-lg leading-relaxed text-muted-foreground"
@@ -108,9 +106,7 @@ export const AboutSection = memo(function AboutSection() {
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                Our approach combines strategic thinking with technical excellence. Every project is built with
-                performance, accessibility, and SEO as foundational principles—not afterthoughts. We believe great
-                design and exceptional code go hand in hand, creating products that users love and businesses trust.
+                Whether you need a simple website, a complex web application, or custom IT infrastructure, we deliver solutions that work. Fast, reliable, and built to scale with your business.
               </motion.p>
             </div>
 
@@ -160,15 +156,15 @@ export const AboutSection = memo(function AboutSection() {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.6 + index * 0.1, type: "spring" }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="group relative overflow-hidden rounded-2xl border border-border/50 bg-background/60 p-6 backdrop-blur-xl shadow-lg"
+                  className="group relative overflow-hidden rounded-2xl border border-border/50 bg-background/60 p-6 backdrop-blur-xl shadow-lg transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
                 >
                   <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}
+                    className={`absolute inset-0 ${stat.color} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}
                     initial={false}
                   />
                   <div className="relative z-10">
                     <motion.div
-                      className={`mb-3 inline-flex rounded-full bg-gradient-to-r ${stat.color} p-2.5 text-background shadow-lg`}
+                      className={`mb-3 inline-flex rounded-full ${stat.color} p-2.5 text-background shadow-lg shadow-primary/30`}
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
@@ -201,7 +197,20 @@ export const AboutSection = memo(function AboutSection() {
                 Core stack
               </h3>
               <div className="flex flex-wrap gap-2">
-                {["Next.js", "Tailwind CSS", "shadcn/ui", "TypeScript", "Framer Motion"].map((tech, index) => (
+                {[
+                  "Next.js",
+                  "React",
+                  "TypeScript",
+                  "Java",
+                  "Spring",
+                  "C# .NET",
+                  "Node.js",
+                  "PostgreSQL",
+                  "MySQL",
+                  "MongoDB",
+                  "Tailwind CSS",
+                  "shadcn/ui"
+                ].map((tech, index) => (
                   <motion.span
                     key={tech}
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -221,7 +230,7 @@ export const AboutSection = memo(function AboutSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 1, duration: 0.6 }}
-              className="rounded-2xl border border-border/50 bg-gradient-to-br from-primary/5 via-pink-500/5 to-orange-500/5 p-6 backdrop-blur-xl"
+              className="rounded-2xl border border-border/50 bg-primary/5 p-6 backdrop-blur-xl"
             >
               <h3 className="mb-3 flex items-center gap-2 text-base font-semibold">
                 <Zap className="h-4 w-4 text-primary" />
