@@ -262,7 +262,7 @@ export function Hero() {
                 </div>
               </motion.div>
               <div>
-                <p className="text-sm font-semibold">Zcode</p>
+                <p className="text-sm font-semibold">Guidea Anatol</p>
                 <p className="text-xs text-muted-foreground">Founder &amp; Lead Developer</p>
               </div>
             </motion.div>
