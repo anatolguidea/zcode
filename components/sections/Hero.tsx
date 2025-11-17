@@ -298,7 +298,6 @@ export function Hero() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
                 >
-                  Zcode preview
                 </motion.div>
                 <motion.div
                   className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border bg-muted/40"
