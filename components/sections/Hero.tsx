@@ -17,7 +17,6 @@ export function Hero() {
   })
 
   const y = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 100])
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, prefersReducedMotion ? 1 : 0.3])
   
   // Reduce particle count for performance
   const particleCount = prefersReducedMotion ? 0 : 8
@@ -94,7 +93,7 @@ export function Hero() {
       )}
 
       <motion.div
-        style={{ y, opacity }}
+        style={{ y }}
         className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-4 py-16 md:py-24"
       >
         <div className="grid w-full gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-20">
